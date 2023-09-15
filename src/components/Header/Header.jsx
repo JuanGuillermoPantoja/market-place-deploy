@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { NavLink } from 'react-router-dom'
-const Logo = '../../img/logoMarketPlace.jpg'
-const carroCompra = '../../img/img-carro-compras.png'
+import Logo from '../../img/logoMarketPlace.jpg'
+import carroCompra from '../../img/img-carro-compras.png'
 
 
 export const Header = ({selectedProduct}) => {
