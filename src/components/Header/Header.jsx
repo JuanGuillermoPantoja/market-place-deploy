@@ -4,7 +4,7 @@ import Logo from '../../img/logoMarketPlace.jpg'
 import carroCompra from '../../img/img-carro-compras.png'
 
 
-export const Header = ({selectedProduct}) => {
+export const Header = ({selectedProduct,count}) => {
   const [showDropdown, setShowDropdown] = useState(false);
 
   const toggleDropdown = () => {
@@ -20,12 +20,12 @@ export const Header = ({selectedProduct}) => {
     <>
       <header className='h-32 bg-[#f8fab4] w-full flex justify-center'>
           <nav className='flex h-full w-11/12 items-center justify-between'>
-            <NavLink className='p-0' to='/products'><img className='w-32' src={Logo} alt="LogoMarketPlace" /></NavLink>
+            <NavLink className='p-0' to='/'><img className='w-32' src={Logo} alt="LogoMarketPlace" /></NavLink>
             <ul className='flex justify-around items-center text-[#262730] w-1/5'>
               <li><NavLink to='/products'>Products</NavLink></li>
               <li className='relative'>
-                <button className='bg-inherit' onClick={toggleDropdown}>
-                  <img className='w-[50px]' src={carroCompra} alt="" />
+                <button className='bg-inherit flex' onClick={toggleDropdown}>
+                  <img className='w-[50px]' src={carroCompra} alt="" /><span className='w-7 bg-[#262730] rounded-full text-[#f8fab4]'>{count}</span>
                 </button>
                 {showDropdown && (
                   <div className="w-[250px] absolute top-[50px] right-0 bg-[#f8fab4] border border-gray-300 rounded shadow">

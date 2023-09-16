@@ -8,14 +8,16 @@ export const Products = () => {
 
 
     const [selectedProduct, setSelectedProduct] = useState([]);
+    const [count, setCount] = useState(0);
 
     const handleProductClick = (product) => {
         setSelectedProduct([...selectedProduct, product]); // Agregar el producto a la lista existente
       }
+
     
   return (
     <>
-        <Header selectedProduct={selectedProduct} />
+        <Header selectedProduct={selectedProduct} count={count} />
         <div>
             {error && <li>Error: {error}</li>}
             {loading && <li>Loading...</li>}
@@ -27,7 +29,7 @@ export const Products = () => {
                             <img className='w-48 h-[60%] m-auto border-2 rounded-2xl bg-white p-3 border-[#262730]' src={product.image} alt="" />
                             <p>Price: ${product.price}</p>
                             <p>{product.category}</p>
-                            <button className='text-[#f8fab4]' onClick={() => handleProductClick(product)}>add</button>
+                            <button className='text-[#f8fab4]' onClick={() => (handleProductClick(product),setCount(count+1))}>add</button>
                         </div>
                     ))}
                 </div>
